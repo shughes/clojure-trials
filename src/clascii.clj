@@ -1,3 +1,4 @@
+;; original source from LauJensen, git://github.com/LauJensen/Claskii.git
 (ns claskii
   (:import (java.awt Color RenderingHints)
 	   (java.awt.image BufferedImage)
