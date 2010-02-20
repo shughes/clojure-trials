@@ -56,4 +56,4 @@
       (println output))))
 
 ; sample
-; (spit "/Users/shughes/Desktop/jon.html" (convert-image "/Users/shughes/Desktop/jon.jpg" 30 true))
+(spit "/Users/shughes/Desktop/sam.html" (convert-image "/Users/shughes/Desktop/sam.jpg" 120 true))
