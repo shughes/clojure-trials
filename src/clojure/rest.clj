@@ -129,7 +129,9 @@
 (defn parse [xml-lst]
   (let [x-first (first xml-lst)
 	result (cond (= xml-lst ()) nil
-		     (begin-element? x-first) (struct element-node (element-val x-first) nil [(parse (rest xml-lst))])
+		     (begin-element? x-first) (struct element-node 
+						      (element-val x-first)
+						      nil [(parse (rest xml-lst))])
 		     (text? x-first) x-first
 		     :else (parse (rest xml-lst)))]
     (println result)

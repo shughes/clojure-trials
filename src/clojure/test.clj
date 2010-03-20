@@ -91,9 +91,25 @@
 (defmacro my-defn [name args & body]
   `(def ~name (fn [~@args] ~@body)))
 
+;; macros:
+;; ~ says argument is function or variable?
+;; @ lists values 
+;; ` executes function?
+
+(defmacro defn2 [name arg & body]
+  `(def ~name (fn [~arg]
+		~@body)))
+
+(defn2 sam a
+  (* a 25))
+
+(sam 10)
+
 (def lst '(a b c d e))
 `[~@lst]
 
+(def l 'a)
+`~l
 
 (def curry (fn [x]
 	     (fn [y]

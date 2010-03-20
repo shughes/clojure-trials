@@ -5,7 +5,8 @@
 
 (defn direct-port []
   (Class/forName "org.sqlite.JDBC")
-  (let [conn (DriverManager/getConnection "jdbc:sqlite:/Users/shughes/Documents/clojure-trials/src/clojure/test.db")
+  (let [conn (DriverManager/getConnection 
+	      "jdbc:sqlite:/Users/shughes/Documents/clojure-trials/src/clojure/test.db")
 	stat (doto (.createStatement conn)
 	       (.executeUpdate "drop table if exists people;")
 	       (.executeUpdate "create table people (name, occupation);"))
