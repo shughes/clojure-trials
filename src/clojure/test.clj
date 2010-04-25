@@ -96,6 +96,7 @@
 ;; @ lists values 
 ;; ` executes function?
 
+
 (defmacro defn2 [name arg & body]
   `(def ~name (fn [~arg]
 		~@body)))
@@ -119,8 +120,7 @@
 (def mytest (fn [fun]
 	      (fun 10)))
 
-(mytest (fn [x]
-	  (+ x 25)))
+(mytest (fn [x] (+ x 25)))
 
 (defn name-summary [[name1 name2 & others]]
   (println (str name1 ", " name2) "and" (first others)))
@@ -167,5 +167,37 @@
       "don't equal"))
 
 (defmulti foo class)
+
 (defmethod foo String [s] :a-string)
+
 (foo "samuel")
+
+(defn sam [x] 
+  (if (= "sam" x) 
+    "first name" 
+    "last name"))
+
+(defmulti tester sam)
+
+(defmethod tester "first name" [x] 
+  "good job")
+
+(defmethod tester "last name" [x] 
+  "bad job")
+
+(tester "sam")
+
+(defn my-multi [x]
+  (x :value)) 
+
+(defmulti foo my-multi)
+
+(defmethod foo "samuel" [s] 
+  "first name")
+
+(defmethod foo "hughes" [s]
+  "last name")
+
+(def test1 {:value "hughes"})
+
+(foo test1)
